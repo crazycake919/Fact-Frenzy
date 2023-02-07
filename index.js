@@ -13,7 +13,7 @@ const firebaseApp = {
     measurementId: "G-VTCV9NWF03",
     databaseURL:"https://fact-frenzy-dc028-default-rtdb.europe-west1.firebasedatabase.app/"
 };
-var questionLength = 2
+var questionLength = 21;
 var currentQuestion=0;
 var score = 0;
 var data = new Array(questionLength);
