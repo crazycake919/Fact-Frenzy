@@ -2,6 +2,8 @@
 <html>
 
 <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <meta charset="utf-8">
     <title>fun facts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,16 +18,16 @@
 
 
     <script>
-        var factsArr=["smthing"];
-        
+        var factsArr = ["smthing"];
+
         $(document).ready(async function () {
             await getFile();
-           
-           
+
+
             const letters = "ABCDEFGHIJKLMNOPRSTUVZQWX "
             const lowercase = letters.toLowerCase();
             let iterations = 0;
-            
+
             var fact = $("#fact");
             let words = $.trim(fact.text());
             console.log(words);
@@ -52,27 +54,55 @@
             }, 20)
 
 
-            
+
         });
-        
+
         async function getFile() {
             const response = await fetch('data.txt');
             const text = await response.text()
             factsArr = text.split("\n");
             console.log(factsArr.length);
-            
-            $("#fact").html(factsArr[Math.floor(Math.random()*factsArr.length)]);
-                
+
+            $("#fact").html(factsArr[Math.floor(Math.random() * factsArr.length)]);
+
         }
+        $(document).ready(function () {
+            const bg = document.querySelector('.background-image');
+            console.log(bg);
+            const windowWidth = window.innerWidth / 5;
+            const windowHeight = window.innerHeight / 5;
+
+            document.addEventListener('mousemove', (e) => {
+                const mouseX = e.clientX / windowWidth;
+                const mouseY = e.clientY / windowHeight;
+
+                bg.style.transform = `translate3d(-${mouseX}%, -${mouseY}%, 0)`;
+            });
+        });
+
+
     </script>
 </head>
 
 <body>
-    
-    <h1 id="fact">
-        
+
+    <nav id="dejstvo">
+        <h1 id="fact"></h1>
+    </nav>
+    <div class="box">
+    <nav id="nav">
+        <ul>
+            <li onclick="getFile()"><span></span><span></span><span></span><span></span>
+                new fact
+
+            </li>
+
+            <span></span><span></span><span></span><span></span>
+
+    </nav>
+    </div>
     </h1>
-    <a href="quiz.html">quiz</a>
+    <div class="background-image"></div>
 </body>
 
 </html>
