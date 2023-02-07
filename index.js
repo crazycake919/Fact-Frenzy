@@ -65,6 +65,7 @@ export function SetQuestion(){
     let question = $("#Q");
     let Answer1 = $("#A1");
     let Answer2 = $("#A2");
+    
     let Answer3 = $("#A3");
     let Answer4 = $("#A4");
     console.log(random);
@@ -73,6 +74,7 @@ export function SetQuestion(){
     Answer2.html(data[random][2][1]);
     Answer3.html(data[random][2][2]);
     Answer4.html(data[random][2][3]);
+    
 }
 
 //writeData("idk");
