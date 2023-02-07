@@ -18,15 +18,38 @@
 </head>
 
 <body>
-    <h1 id="Q">question</h1>
-    <button id="A1" >1</button>
-    <button id="A2" >2</button>
-    <button id="A3" >3</button>
-    <button id="A4" >4</button>
+    <div id ="gameArea">
+        <h1 id="Q">question</h1>
+        <br>
+        <div id="buttons">
+            <button id="A1" class="answer">1</button>
+            <button id="A2" class="answer">2</button>
+            <button id="A3" class="answer">3</button>
+            <button id="A4" class="answer">4</button>
+            <br>
+            
+            <button id="newQuestion">New question</button>
+            <br>
+        </div>
+        
+        
+        <p id = "score">Score: 0</p>
+
+    </div>
+    
     <br>
-    <button id="newQuestion">New question</button>
+    <div id ="menu">
+        <button id="start" >start/retry</button>
+        <button id="back" onclick="location.href = 'index.html';">return</button>
+    </div>
+    
     <script type="module">
-        import { SetQuestion } from './index.js';
+        import { SetQuestion,answer,GameStart } from './index.js';
         $("#newQuestion").on("click", SetQuestion);
+        $("#start").on("click", GameStart);
+
+        $(".answer").on("click", function(){
+            answer(this);
+        });
       </script>
 </body>

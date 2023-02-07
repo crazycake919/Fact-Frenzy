@@ -14,6 +14,8 @@ const firebaseApp = {
     databaseURL:"https://fact-frenzy-dc028-default-rtdb.europe-west1.firebasedatabase.app/"
 };
 var questionLength = 2
+var currentQuestion=0;
+var score = 0;
 var data = new Array(questionLength);
 for(let i = 0;i<questionLength;i++){
     data[i] = new Array(3);
@@ -59,24 +61,84 @@ onValue(referance, (snapshot)=>{
    console.log(data);
     SetQuestion();
 });
-
-export function SetQuestion(){
+var usedNumbers=[];
+function getNumber(){
     let random = Math.floor(Math.random()*questionLength);
-    let question = $("#Q");
-    let Answer1 = $("#A1");
-    let Answer2 = $("#A2");
+    while(usedNumbers.includes(random)){
+        random = Math.floor(Math.random()*questionLength);
+    }
+    if(usedNumbers.push(random)>questionLength/2){
+        usedNumbers.shift();
+    }
+    return random;
+}
+export function SetQuestion(){
+    currentQuestion=getNumber();
     
-    let Answer3 = $("#A3");
-    let Answer4 = $("#A4");
-    console.log(random);
-    question.html(data[random][0])
-    Answer1.html(data[random][2][0]);
-    Answer2.html(data[random][2][1]);
-    Answer3.html(data[random][2][2]);
-    Answer4.html(data[random][2][3]);
+    let question = $("#Q");
+ 
+    //console.log(currentQuestion);
+    question.html(data[currentQuestion][0])
+    Randomise();
     
 }
+function Randomise(){
+    let Answers;
+    let ansNumber = 0;
+    Answers = $(".answer");
+    console.log(Answers);
+    console.log($("#A1"));
+    let random;
+    while(ansNumber<4){
+        random = Math.floor(Math.random()*Answers.length);
+        console.log(random);
+        console.log(Answers[0]);
+        console.log(data[currentQuestion][2][ansNumber]);
+        $(Answers[random]).html(data[currentQuestion][2][ansNumber]);
+        $(Answers[random]).removeAttr("id");
+ 
+        
+        $(Answers[random]).attr("id", "A"+(ansNumber+1));
+        Answers.splice(random,1);
+        
+        ansNumber++;
+    }
+   
+    
 
+}
+export function answer(button){
+    if(button.id == data[currentQuestion][1]){
+        console.log("yes");
+        score++;
+        $("#score").html("Score: "+score);
+        SetQuestion();
+    }else{
+        console.log("no");
+        EndGame();
+    }
+ 
+}
+function start(){
+    $("#gameArea").hide();
+    
+}
+export function GameStart(){
+    score = 0;
+    SetQuestion();
+    $("#gameArea").show();
+    $("#menu").hide();
+    $("#buttons").show();
+    $("#score").html("Score: "+score);
+}
+function EndGame(){
+    
+    $("#Q").html("Try Again");
+    $("#score").html("Score: "+score);
+    $("#menu").show();
+    $("#buttons").hide();
+}
+start();
 //writeData("idk");
 onAuthStateChanged(auth, user =>{
     if(user != null){
