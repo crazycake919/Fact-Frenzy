@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="style.css">
 
     <script type="module" src="./index.js"></script>
+    
 </head>
 
 <body>
@@ -23,5 +24,9 @@
     <button id="A3" >3</button>
     <button id="A4" >4</button>
     <br>
-    <button onclick="SetQuestion()">New question</button>
+    <button id="newQuestion">New question</button>
+    <script type="module">
+        import { SetQuestion } from './index.js';
+        $("#newQuestion").on("click", SetQuestion);
+      </script>
 </body>

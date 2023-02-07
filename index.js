@@ -60,7 +60,7 @@ onValue(referance, (snapshot)=>{
     SetQuestion();
 });
 
-function SetQuestion(){
+export function SetQuestion(){
     let random = Math.floor(Math.random()*questionLength);
     let question = $("#Q");
     let Answer1 = $("#A1");
