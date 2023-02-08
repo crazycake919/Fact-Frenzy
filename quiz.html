@@ -105,7 +105,10 @@ $(document).ready(function () {
     
     
     <br>
-    
+    <div id="SubmitScore">
+        <input id="name" type="text">
+        <button id="submit">Submit</button>
+    </div>
     <div id="menu">
         
         
@@ -114,10 +117,7 @@ $(document).ready(function () {
         <button id="back" onclick="location.href = 'index.html';">return</button>
 
     </div>
-    <div id="SubmitScore">
-        <input id="name" type="text">
-        <button id="submit">Submit</button>
-    </div>
+    
     <script type="module">
         import { SetQuestion,answer,GameStart,writeData } from './index.js';
         $("#newQuestion").on("click", SetQuestion);
