@@ -1,4 +1,159 @@
-body{
+:root {
+    --bg-color: #4c379f;
+    --light-color: rgb(44, 43, 60);
+    --dark-color: #212861;
+    --almond-color: rgb(145, 179, 224);
+    --blue-color: rgb(141, 152, 167);
+}
+
+body {
     height: 100%;
+    margin: 0;
+    padding: 0;
+
+}
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100%;
+    height: 100%;
+
+    margin: 0px;
+    overflow: hidden;
+    padding: 0px;
+
+}
+
+.background-image {
+    width: 110%;
+    height: 110%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: url('blue purple beige space-1675788316305_resized.jpg') no-repeat left center / cover;
+    z-index: -1;
+}
+
+
+li {
+    box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.5);
+    transition: transform ease .5s, box-shadow ease .5s;
+}
+
+li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#menu {
+    display: flex;
+    margin: 270px auto;
+    height: 40%;
+    width: 40%;
+    flex-direction: column;
+    border-radius: 30%;
     
 }
+
+#start {
+    background-color: rgb(83, 27, 27);
+    border: none;
+    height: 50%;
+    padding: 0px;
+    width: 100%;
+    outline: 0;
+    margin-top: -24px;
+    background: var(--bg-color);
+    border-top-right-radius: 30px ;
+    border-top-left-radius: 30px ;
+    box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    color: var(--almond-color);
+}
+
+#back {
+    background-color: rgb(23, 23, 59);
+    justify-content: flex-end;
+    border: none;
+    height: 50%;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    outline: 0;
+    background: var(--almond-color);
+    border-bottom-right-radius: 30px ;
+    border-bottom-left-radius: 30px ;
+    box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    color: var(--bg-color);
+}
+
+
+
+#start {
+    transition: height 0.5s;
+   
+   
+}
+
+#back {
+    transition: height 0.5s;
+  
+}
+
+
+
+
+
+/*:root {
+	--x: 0.5;
+	--y: 0.5;
+}
+
+.container, .tracker {
+	position: absolute;
+}
+
+.container {
+    
+	width: 751px;
+	height: 400px;
+	top: 50%;
+  left: 50%;
+	transform: translate(-50%, -50%);
+	
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.tracker {
+	width: 10px;
+	height: 10px;
+  left: 0;
+  top: 0;
+	background: red;
+	border-radius: 1000px;
+	transform: translate(calc(-50% + 751px * var(--x)), calc(-50% + 400px * var(--y)));
+  transition: transform 0.1s;
+  
+}/*
