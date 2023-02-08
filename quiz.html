@@ -40,14 +40,19 @@
     
     <br>
     <div id ="menu">
+        
         <button id="start" >start/retry</button>
         <button id="back" onclick="location.href = 'index.html';">return</button>
     </div>
-    
+    <div id="SubmitScore">
+        <input id="name" type="text">
+        <button id="submit">Submit</button>
+    </div>
     <script type="module">
-        import { SetQuestion,answer,GameStart } from './index.js';
+        import { SetQuestion,answer,GameStart,writeData } from './index.js';
         $("#newQuestion").on("click", SetQuestion);
         $("#start").on("click", GameStart);
+        $("#submit").on("click", writeData);
 
         $(".answer").on("click", function(){
             answer(this);
