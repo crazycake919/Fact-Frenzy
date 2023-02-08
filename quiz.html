@@ -105,6 +105,9 @@ $(document).ready(function () {
     
     
     <br>
+    <div id ="menu">
+        
+        <button id="start" >start/retry</button>
     <div id="menu">
         
         
@@ -113,13 +116,16 @@ $(document).ready(function () {
         <button id="back" onclick="location.href = 'index.html';">return</button>
 
     </div>
-
-
-
-
-</body>
-
-
+    <div id="SubmitScore">
+        <input id="name" type="text">
+        <button id="submit">Submit</button>
+    </div>
+    <script type="module">
+        import { SetQuestion,answer,GameStart,writeData } from './index.js';
+        $("#newQuestion").on("click", SetQuestion);
+        $("#start").on("click", GameStart);
+        $("#submit").on("click", writeData);
+</script>
 <div class="background-image"></div>
 </body>
 

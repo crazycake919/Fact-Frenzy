@@ -6,7 +6,7 @@
     --blue-color: rgb(141, 152, 167);
 }
 
-body {
+body{
     height: 100%;
     margin: 0;
     padding: 0;
@@ -157,3 +157,4 @@ li:hover {
   transition: transform 0.1s;
   
 }/*
+}
