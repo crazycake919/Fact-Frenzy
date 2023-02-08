@@ -105,9 +105,7 @@ $(document).ready(function () {
     
     
     <br>
-    <div id ="menu">
-        
-        <button id="start" >start/retry</button>
+    
     <div id="menu">
         
         
@@ -125,6 +123,10 @@ $(document).ready(function () {
         $("#newQuestion").on("click", SetQuestion);
         $("#start").on("click", GameStart);
         $("#submit").on("click", writeData);
+        $(".answer").on("click",function (){
+            answer(this);
+
+        })
 </script>
 <div class="background-image"></div>
 </body>
