@@ -122,33 +122,31 @@
         </script>
     
     
-        <br>
-        <div id="SubmitScore">
-            <input id="name" type="text">
-            <button id="submit">Submit</button>
-        </div>
-        <div id="menu">
+    <br>
+    <div id="SubmitScore">
+        <input id="name" type="text">
+        <button id="submit">Submit</button>
+    </div>
+    <div id="menu">
+        
+        
+        <button id="start">start / retry</button>
+        
+        <button id="back" onclick="location.href = 'index.html';">return</button>
+
+    </div>
     
-    
-            <button id="start">start / retry</button>
-    
-            <button id="back" onclick="location.href = 'index.html';">return</button>
-    
-        </div>
-    
-        <script type="module">
-            import { SetQuestion, answer, GameStart, writeData } from './index.js';
-            $("#newQuestion").on("click", SetQuestion);
-            $("#start").on("click", GameStart);
-            $("#submit").on("click", writeData);
-            $(".answer").on("click", function () {
-                answer(this);
-    
-            })
-        </script>
-        <div class="background-image"></div>
-    
-    
-    </body>
+    <script type="module">
+        import { SetQuestion,answer,GameStart,writeData } from './index.js';
+        $("#newQuestion").on("click", SetQuestion);
+        $("#start").on("click", GameStart);
+        $("#submit").on("click", writeData);
+        $(".answer").on("click",function (){
+            answer(this);
+
+        })
+</script>
+<div class="background-image"></div>
+</body>
 
 </html>
