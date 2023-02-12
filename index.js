@@ -51,9 +51,10 @@ onValue(referance, (snapshot) => {
         questionIndex++
 
     });
-    start();
+    loadedData = true;
     
 });
+start();
 var usedNumbers = [];
 function getNumber() {
     let random = Math.floor(Math.random() * questionLength);
@@ -168,7 +169,16 @@ function start() {
     $("#SubmitScore").hide();
 
 }
+var loadedData=false;
 export function GameStart() {
+    if(!loadedData){
+        setTimeout(delayGameStart,300);
+        loadedData=true;
+    }else{
+        delayGameStart()
+    }
+}
+function delayGameStart(){
     score = 0;
     $("#SubmitScore").hide();
     openQuestionBox=false;
