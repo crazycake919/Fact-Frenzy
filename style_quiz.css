@@ -297,6 +297,9 @@ li:hover {
     border-radius: 8px;
 
   }
+  .background-image {
+    display:none;
+  }
   body{
     background: url('blue_background.png') ;
   }
