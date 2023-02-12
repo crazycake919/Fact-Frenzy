@@ -51,7 +51,7 @@ onValue(referance, (snapshot) => {
         questionIndex++
 
     });
-    
+    start();
     
 });
 var usedNumbers = [];
@@ -191,7 +191,7 @@ function EndGame() {
     $("#menu").show();
     $("#buttons").hide();
 }
-start();
+
 //AUTH
 var uid ;
 signInAnonymously(auth)
