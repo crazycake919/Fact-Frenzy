@@ -1,9 +1,9 @@
 :root {
-    --bg-color: #4c379f;
-    --light-color: rgb(44, 43, 60);
-    --dark-color: #212861;
-    --almond-color: rgb(145, 179, 224);
-    --blue-color: rgb(141, 152, 167);
+    --bg-color: #27296d;
+    --light-color: #27296d;
+    --dark-color: #5e63b6;
+    --almond-color: #a393eb;
+    --blue-color: #f5c7f7;
 }
 
 html {
@@ -13,7 +13,8 @@ html {
 }
 
 body {
-
+    margin-top: -100vh;
+    transition: margin-top 0.5s;
     min-height: 100%;
     height: 100%;
     position: relative;
@@ -73,7 +74,7 @@ h1 {
 #fact {
     text-align: center;
     height: 50vh;
-    color: var(--almond-color);
+    color: var(--blue-color);
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -128,7 +129,7 @@ nav ul li span {
     position: absolute;
     width: 25%;
     height: 100%;
-    background-color: var(--almond-color);
+    background-color: var(--blue-color);
     transform: translateY(150%);
     border-radius: 50%;
     left: calc((var(--n) - 1) * 25%);
@@ -169,16 +170,7 @@ nav ul li:hover span {
 #nav ul li span:nth-child(5) {
     --n: 5;
 }
-.neki{
-    position: relative;
-    color:pink;
-    width: 100%;
-    height: 1000px;
-    margin: 0px;
-    padding: 0px;
-    
- }
- 
+
 
 nav ul {
     display: flex;
@@ -248,3 +240,141 @@ li:hover {
     transform: translateY(-5px);
     box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
 }
+
+.leaderboard {
+    width: 100%;
+    height: 100px;
+    background: rgb(39,41,109);
+    background: radial-gradient(circle, rgba(39,41,109,1) 20%, #474a86 30%);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    transition: height 0.5s ease;
+    overflow: hidden;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+}
+
+.texti {
+    
+    position: absolute;
+    align-items: center;
+    font-size: 40px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    color: var(--blue-color);
+}
+
+.leaderboard::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(circle, rgba(39,41,109,1) 0%, #474a86 100%);
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .leaderboard:hover::before {
+    opacity: 1;
+  }
+
+.leaderboard-items {
+   
+    position: relative;
+    top: 150px;
+    transition: top 0.5s ease;
+}
+
+
+.leaderboard:hover {
+    height: 80%;
+}
+
+/*.leaderboard:hover + tr{
+    height: 80%;
+  }*/
+
+.leaderboard table {
+    width: 600px;
+    margin-top: -70px;
+    padding: 10px;
+}
+.leaderboard li, th{ /*pol bo tr*/
+    font-size: 20px;
+    font-family: monospace;
+    color: var(--blue-color);
+    margin: 5px;
+    height: 50px;
+}
+
+
+.leaderboard button {
+    font-family: inherit;
+    font-size: 20px;
+    background: var(--blue-color);
+    color: var(--bg-color);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+    height: 80px;
+    width: 100px;
+    position: absolute;
+    right: 70px;
+    top: 380px;
+    font-weight: bold;
+    box-shadow: 3px 4px 7px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  button span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  button svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  button:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
+  
+  button:hover svg {
+    transform: translateX(1.2em) rotate(45deg) scale(1.1);
+  }
+  
+  button:hover span {
+    transform: translateX(5em);
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }
+  
+  @keyframes fly-1 {
+    from {
+      transform: translateY(0.1em);
+    }
+  
+    to {
+      transform: translateY(-0.1em);
+    }
+  }
+  
+  
