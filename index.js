@@ -172,7 +172,7 @@ function start() {
 var loadedData=false;
 export function GameStart() {
     if(!loadedData){
-        setTimeout(delayGameStart,300);
+        setTimeout(delayGameStart,500);
         loadedData=true;
     }else{
         delayGameStart()
