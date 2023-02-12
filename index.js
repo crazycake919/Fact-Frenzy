@@ -172,13 +172,14 @@ export function GameStart() {
     score = 0;
     $("#SubmitScore").hide();
     openQuestionBox=false;
+    
+    $("#gameArea").show();
+    $("#menu").hide();
+    $("#buttons").show();
     right.addClass("second1");
     left.addClass("second2");
 
     changeQuestion();
-    $("#gameArea").show();
-    $("#menu").hide();
-    $("#buttons").show();
     $("#score").html("Score: " + score);
 }
 function EndGame() {
