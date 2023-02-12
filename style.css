@@ -176,7 +176,9 @@ nav ul li:hover span {
     height: 1000px;
     margin: 0px;
     padding: 0px;
+    
  }
+ 
 
 nav ul {
     display: flex;
