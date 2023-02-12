@@ -171,7 +171,7 @@ nav ul li:hover span {
 }
 .neki{
     position: relative;
-    background-color: red;
+    color:pink;
     width: 100%;
     height: 1000px;
     margin: 0px;
