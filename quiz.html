@@ -32,18 +32,13 @@
             <script>console.log("kaj se dogaja");</script>
     
             <div id="buttons">
-                <div class="card-content"><button id="A1" class="answer">1</button></div>
-    
-                <div class="card-content"><button id="A2" class="answer">2</button></div>
-    
-                <div class="card-content"><button id="A3" class="answer">3</button></div>
-    
-                <div class="card-content"><button id="A4" class="answer">4</button></div>
-    
-    
+                <div class="card-content"><button id="A1" class="answer"></button></div>
+                <div class="card-content"><button id="A2" class="answer"></button></div>
+                <div class="card-content"><button id="A3" class="answer"></button></div>
+                <div class="card-content"><button id="A4" class="answer"></button></div>
             </div>
             
-            <br>
+            
     
     
     
@@ -63,7 +58,7 @@
                 $(document).mousemove(function (event) {
                     mouseY = event.clientY;
                     mouseX = event.clientX;
-                    animateButtons();
+                    //animateButtons();
                 });
     
                 function animateButtons() {
@@ -116,7 +111,7 @@
         </script>
     
     
-    <br>
+   
     <div id="SubmitScore">
         <input id="name" type="text">
         <button id="submit">Submit</button>
@@ -124,9 +119,9 @@
     <div id="menu">
         
         
-        <button id="start">start / retry</button>
+        <button id="start">START</button>
         
-        <button id="back" onclick="location.href = 'index.html';">return</button>
+        <button id="back" onclick="location.href = 'index.html';">RETURN</button>
 
     </div>
     
