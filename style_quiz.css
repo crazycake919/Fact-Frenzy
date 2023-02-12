@@ -300,9 +300,19 @@ li:hover {
   .background-image {
     display:none;
   }
-  body{
-    background: url('blue_background.png') ;
-  }
+  body {
+    background:
+        linear-gradient(121.28deg, #211e25 0%, #000000 100%),
+        linear-gradient(180deg, #2e1a4b 0%, #3f384b 100%),
+
+
+        linear-gradient(341.1deg, #4e14b9 7.52%, #3f2d58 77.98%),
+
+        radial-gradient(50.82% 50.51% at 49.82% 50%, #5A0069 0%, #5e04b3 100%),
+        radial-gradient(60% 42.12% at 50% 50%, #cf1ca7 0%, #3f2d58 90%);
+  
+    background-blend-mode: color-dodge, overlay, difference, difference, normal;
+}
   
   
 
