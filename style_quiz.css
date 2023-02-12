@@ -16,11 +16,11 @@ html {
 body {
 
   height: 100%;
-  align-items: center;
+  
   margin: 0px;
-  overflow: hidden;
+  
   padding: 0px;
-  display: flex;
+  
   justify-content: center;
 
   text-align: center;
@@ -66,6 +66,7 @@ li:hover {
 
 #gameArea {
   width: 100%;
+  margin-top:10%;
 
 }
 
@@ -74,6 +75,7 @@ li:hover {
   margin: 270px auto;
   height: 40%;
   width: 512px;
+  
   flex-direction: column;
   border-radius: 30%;
 
@@ -145,12 +147,7 @@ li:hover {
 
 }
 
-@media only screen and (max-width: 600px) {
-  #menu {
-    width: 90%;
 
-  }
-}
 
 .answer {
   background-color: #5558a0;
@@ -294,8 +291,57 @@ li:hover {
   margin-left: -600px;
 
 }
-@media only screen and (max-width: 1150px) {
+#SubmitScore{
+  position: absolute;
+  width:100%;
+  top:10%;
   
+}
+#submit{
+  background-color: #5558a0;
+  transition: 0.5s;
+  height: 15%;
+  width: 512px;
+  margin-top : 10px;
+  padding: 10px;
+  
+  border-radius: 25px;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid var(--almond-color);
+  color: #f5c7f7;
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+}
+#name{
+  
+  transition: 0.5s;
+  height: 15%;
+  width: 512px;
+  
+  padding: 13.5px;
+  
+  border-radius: 25px;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid var(--almond-color);
+  color: #540457;
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+}
+@media only screen and (max-width: 600px) {
+  #menu {
+    width: 90%;
+
+  }
+  #submit, #name{
+    width: 90%;
+
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+ 
   .answer {
     
     font-size: 20px;
