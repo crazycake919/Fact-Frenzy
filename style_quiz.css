@@ -297,15 +297,10 @@ li:hover {
     border-radius: 8px;
 
   }
-  .background-image {
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    position: absolute;
+  body{
     background: url('blue_background.png') ;
-    z-index: -1;
   }
+  
   
 
 }
