@@ -252,6 +252,7 @@ export function writeData() {
         score: HighScore
 
     })
+    $("#name").val("");
 }
 //writeData("idk");
 
