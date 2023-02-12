@@ -204,6 +204,11 @@ nav ul {
     background-blend-mode: color-dodge, overlay, difference, difference, normal;
     z-index: -1;
 }
+#SubmitScore{
+    display: block;
+
+
+}
 
 @media only screen and (max-width: 1150px) {
     .background-image {
