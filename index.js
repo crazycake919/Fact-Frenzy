@@ -170,13 +170,21 @@ function start() {
 
 }
 var loadedData=false;
+var inter;
 export function GameStart() {
     if(!loadedData){
-        setTimeout(delayGameStart,500);
-        loadedData=true;
+        inter = setInterval(check,40);
+        
     }else{
         delayGameStart()
     }
+}
+function check(){
+   if(loadedData){
+    clearInterval(inter);
+    delayGameStart();
+   }
+        
 }
 function delayGameStart(){
     score = 0;
