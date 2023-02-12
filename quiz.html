@@ -22,11 +22,11 @@
 
         <div id="gameArea">
             <div class="mainbox">
-                <div class="fluidbox1">
+                <div id="1">
                 </div>
-                <div class="fluidbox2">
+                <div id="2">
                 </div>
-                <div class="uprasanje"><h1 id="Q">question</h1></div>
+                <div class="uprasanje"><h1 id="Q"></h1></div>
                 
             </div>
             <script>console.log("kaj se dogaja");</script>
@@ -42,7 +42,7 @@
     
     
             </div>
-            <button id="newQuestion">New question</button>
+            
             <br>
     
     
@@ -111,13 +111,7 @@
             }
     
             // za skrit škatle ko grejo bye bye, nardit morm da se ponovi ko kliknem new question
-            document.querySelector(".fluidbox1").addEventListener("animationend", function () {
-                this.style.display = "none";
-            });
-    
-            document.querySelector(".fluidbox2").addEventListener("animationend", function () {
-                this.style.display = "none";
-            });
+            
     
         </script>
     
@@ -138,7 +132,7 @@
     
     <script type="module">
         import { SetQuestion,answer,GameStart,writeData } from './index.js';
-        $("#newQuestion").on("click", SetQuestion);
+        
         $("#start").on("click", GameStart);
         $("#submit").on("click", writeData);
         $(".answer").on("click",function (){

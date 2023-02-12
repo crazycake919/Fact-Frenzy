@@ -51,8 +51,8 @@ onValue(referance, (snapshot) => {
         questionIndex++
 
     });
-    console.log(data);
-    SetQuestion();
+    
+    
 });
 var usedNumbers = [];
 function getNumber() {
@@ -65,14 +65,65 @@ function getNumber() {
     }
     return random;
 }
-export function SetQuestion() {
+var right = $("#1");
+var left = $("#2");
+
+// Set the animation iteration count to 2
+
+// Add an animation iteration event listener to the element
+var openQuestionBox=false;
+right.on("animationend", function () {
+    if(openQuestionBox){
+        right.removeClass('fluidbox1');
+        openQuestionBox =false;
+        right.addClass("second1");
+        left.removeClass('fluidbox2');
+        
+        left.addClass("second2");
+        changeQuestion();
+    }else{
+        right.removeClass("second1");
+        left.removeClass("second2");
+        openQuestionBox=true;
+    }
+    
+    
+    
+});
+/*
+var leftBool=true;
+left.on("animationend", function () {
+    if(rightBool){
+        left.removeClass('fluidbox2');
+        leftBool =false;
+        left.addClass("second2");
+    }else{
+        left.removeClass("second2");
+        leftBool=true;
+    }
+    
+    
+    
+});
+*/
+
+function changeQuestion(){
+    
     currentQuestion = getNumber();
-
     let question = $("#Q");
-
-    //console.log(currentQuestion);
-    question.html(data[currentQuestion][0])
+    question.html(data[currentQuestion][0]);
     Randomise();
+}
+export function SetQuestion() {
+    
+
+    
+    right.addClass("fluidbox1");
+    left.addClass("fluidbox2");
+    //console.log(currentQuestion);
+    
+    
+    
 
 }
 function Randomise() {
@@ -97,7 +148,9 @@ function Randomise() {
 
 
 }
+
 export function answer(button) {
+
     if (button.id == data[currentQuestion][1]) {
         //console.log("yes");
         score++;
@@ -109,6 +162,7 @@ export function answer(button) {
     }
 
 }
+
 function start() {
     $("#gameArea").hide();
     $("#SubmitScore").hide();
@@ -117,7 +171,11 @@ function start() {
 export function GameStart() {
     score = 0;
     $("#SubmitScore").hide();
-    SetQuestion();
+    openQuestionBox=false;
+    right.addClass("second1");
+    left.addClass("second2");
+
+    changeQuestion();
     $("#gameArea").show();
     $("#menu").hide();
     $("#buttons").show();
@@ -127,7 +185,7 @@ function EndGame() {
 
     
     $("#SubmitScore").show();
-    $("#Q").html("Try Again");
+    $("#gameArea").hide();
     $("#score").html("Score: " + score);
     $("#menu").show();
     $("#buttons").hide();

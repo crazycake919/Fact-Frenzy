@@ -235,7 +235,7 @@ justify-content: center;
     min-height: 205px;
     min-width: 600px;
     background-color: var(--almond-color);
-    animation: slide1 1.5s ;
+    animation: slide3 0.5s ;
     transition-timing-function: cubic-bezier(0,.73,1,-0.13);
     z-index: 1;
     margin-left: 600px;
@@ -246,18 +246,42 @@ justify-content: center;
     min-height: 205px;
     min-width: 600px;
     background-color: var(--almond-color);
+    animation: slide4 0.5s;
+    transition-timing-function:cubic-bezier(0,.73,0,.98);
+    z-index: 1;
+    margin-left: -600px;
+   
+  }
+  .second1{
+    position: absolute;
+    min-height: 205px;
+    min-width: 600px;
+    background-color: var(--almond-color);
+    animation: slide1 1.5s ;
+    transition-timing-function: cubic-bezier(0,.73,1,-0.13);
+    z-index: 1;
+    margin-left: 600px;
+   
+  }
+  .second2{
+    position: absolute;
+    min-height: 205px;
+    min-width: 600px;
+    background-color: var(--almond-color);
     animation: slide2 1.5s;
     transition-timing-function:cubic-bezier(0,.73,0,.98);
     z-index: 1;
     margin-left: -600px;
    
   }
-   
+ 
+
   
   
   
   @keyframes slide1{
-    0% {
+    
+    0%{
       transform: translateX(0px);
     }
     100% {
@@ -265,11 +289,28 @@ justify-content: center;
     }
   }
   @keyframes slide2{
-    0% {
+    0%{
       transform: translateX(0px);
     }
     100% {
       transform: translateX(-850px) ;
+    }
+  }
+  @keyframes slide3{
+    
+    0%{
+      transform: translateX(850px);
+    }
+    100% {
+      transform: translateX(0px) ;
+    }
+  }
+  @keyframes slide4{
+    0%{
+      transform: translateX(-850px);
+    }
+    100% {
+      transform: translateX(0px) ;
     }
   }
 
