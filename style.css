@@ -390,6 +390,7 @@ li:hover {
   @media only screen and (max-width: 1150px) {
     .leaderboard-items{
         width: 90vh;
+        padding: 10px;
     }
     .leaderboard button{
         display: none;
