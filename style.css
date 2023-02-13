@@ -260,6 +260,7 @@ li:hover {
     display: flex;
     justify-content: center;
     margin: 0px;
+    
 }
 
 .texti {
@@ -298,6 +299,9 @@ li:hover {
     position: relative;
     top: 150px;
     transition: top 0.5s ease;
+   height: 550px;
+   overflow-y: auto;
+   overflow-x: hidden;
 }
 
 
@@ -313,6 +317,7 @@ li:hover {
     width: 600px;
     margin-top: -70px;
     padding: 10px;
+    
 }
 .leaderboard li, th{ /*pol bo tr*/
     font-size: 20px;
@@ -382,4 +387,4 @@ li:hover {
     }
   }
   
-  
+ 
