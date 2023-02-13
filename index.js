@@ -13,9 +13,13 @@ const firebaseApp = {
     measurementId: "G-VTCV9NWF03",
     databaseURL: "https://fact-frenzy-dc028-default-rtdb.europe-west1.firebasedatabase.app/"
 };
-var questionLength = 21;
+//stats
+var questionLength = 80;
 var currentQuestion = 0;
 var score = 0;
+var baseLives = 3;
+var lives = baseLives;
+var GetLives=0;
 var data = new Array(questionLength);
 for (let i = 0; i < questionLength; i++) {
     data[i] = new Array(3);
@@ -157,9 +161,26 @@ export function answer(button) {
         score++;
         $("#score").html("Score: " + score);
         SetQuestion();
+        GetLives++;
+        console.log(GetLives);
+        if(GetLives%10==0){
+            GetLives=0;
+            lives++;
+            console.log("GetLives");
+            $("#lives").html("Lives: " + lives);
+        }
     } else {
-        //console.log("no");
-        EndGame();
+        lives--;
+        GetLives=0;
+        if(lives<=0){
+            EndGame();
+        }else{
+            
+            SetQuestion();
+            $("#lives").html("Lives: " + lives);
+
+        }
+        
     }
 
 }
