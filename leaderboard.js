@@ -83,7 +83,7 @@ function swap(arr, i, j) {
 function AddToLeaderBoard() {
     let lb = $("#leaderboard");
     for (let i = 0; i < data.length; i++) {
-        lb.append("<tr><th>"+data[i][0]+"</th><th>"+data[i][1]+"</th></tr>");
+        lb.append("<tr><th>"+data[i][0]+"</th><th class='score'>"+data[i][1]+"</th></tr>");
         
 
     }
