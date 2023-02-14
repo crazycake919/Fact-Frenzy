@@ -517,4 +517,8 @@ p {
     background-color: var(--blue-color);
     transition: width 0.5s ease-in-out;
   }
+  body{
+    height: 100vh;
+    overflow: hidden;
+  }
 }
