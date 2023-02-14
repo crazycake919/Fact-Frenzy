@@ -485,7 +485,7 @@ p {
 
 
 .barContainer{
-  height: 30px;
+  height: 40px;
   width: 1120px;
   margin: auto;
   border: 2px solid var(--almond-color);
@@ -501,3 +501,20 @@ p {
 }
 
 
+@media only screen and (max-width: 1150px) {
+  .barContainer{
+    height: 30px;
+    width: 90%;
+    margin: auto;
+    border: 2px solid var(--almond-color);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  #progressBar {
+    width: 50%;
+    height: 100%;
+    background-color: var(--blue-color);
+    transition: width 0.5s ease-in-out;
+  }
+}
