@@ -122,23 +122,6 @@
 
         }
 
-        document.addEventListener('click', function () {
-
-            var livesText = document.getElementById("lives").textContent;
-            console.log(livesText);
-
-            var lives = parseInt(livesText.split(':')[1].trim());
-            console.log(lives);
-
-            var progressBar = document.getElementById("progressBar");
-            if (lives === 3) {
-                progressBar.style.width = "100%";
-            } else if (lives === 2) {
-                progressBar.style.width = "60%";
-            } else if (lives === 1) {
-                progressBar.style.width = "30%";
-            }
-        });
 
 
 

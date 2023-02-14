@@ -19,7 +19,7 @@ var currentQuestion = 0;
 var score = 0;
 var baseLives = 3;
 var lives = baseLives;
-var GetLives=0;
+var GetLives = 0;
 var data = new Array(questionLength);
 for (let i = 0; i < questionLength; i++) {
     data[i] = new Array(3);
@@ -56,7 +56,7 @@ onValue(referance, (snapshot) => {
 
     });
     loadedData = true;
-    
+
 });
 start();
 var usedNumbers = [];
@@ -76,24 +76,24 @@ var left = $("#2");
 // Set the animation iteration count to 2
 
 // Add an animation iteration event listener to the element
-var openQuestionBox=false;
+var openQuestionBox = false;
 right.on("animationend", function () {
-    if(openQuestionBox){
+    if (openQuestionBox) {
         right.removeClass('fluidbox1');
-        openQuestionBox =false;
+        openQuestionBox = false;
         right.addClass("second1");
         left.removeClass('fluidbox2');
-        
+
         left.addClass("second2");
         changeQuestion();
-    }else{
+    } else {
         right.removeClass("second1");
         left.removeClass("second2");
-        openQuestionBox=true;
+        openQuestionBox = true;
     }
-    
-    
-    
+
+
+
 });
 /*
 var leftBool=true;
@@ -112,34 +112,34 @@ left.on("animationend", function () {
 });
 */
 
-function changeQuestion(){
-    
+function changeQuestion() {
+
     currentQuestion = getNumber();
     let question = $("#Q");
     question.html(data[currentQuestion][0]);
     Randomise();
 }
 export function SetQuestion() {
-    
 
-    
+
+
     right.addClass("fluidbox1");
     left.addClass("fluidbox2");
     //console.log(currentQuestion);
-    
-    
-    
+
+
+
 
 }
 function Randomise() {
     let Answers;
     let ansNumber = 0;
     Answers = $(".answer");
-  
+
     let random;
     while (ansNumber < 4) {
         random = Math.floor(Math.random() * Answers.length);
-     
+
         $(Answers[random]).html(data[currentQuestion][2][ansNumber]);
         $(Answers[random]).removeAttr("id");
 
@@ -163,25 +163,33 @@ export function answer(button) {
         SetQuestion();
         GetLives++;
         console.log(GetLives);
-        if(GetLives%10==0){
-            GetLives=0;
+        if (GetLives % 10 == 0) {
+            GetLives = 0;
             lives++;
             console.log("GetLives");
             $("#lives").html("Lives: " + lives);
         }
     } else {
         lives--;
-        GetLives=0;
-        if(lives<=0){
+        GetLives = 0;
+        if (lives <= 0) {
             EndGame();
-        }else{
-            
+        } else {
+
             SetQuestion();
             $("#lives").html("Lives: " + lives);
 
         }
-        
+
     }
+    SetBar();
+
+}
+
+function SetBar() {
+    var bar = $("#progressBar");
+    let stringGetLives = GetLives * 10 + "%";
+    bar.css("width", stringGetLives);
 
 }
 
@@ -190,28 +198,29 @@ function start() {
     $("#SubmitScore").hide();
 
 }
-var loadedData=false;
+var loadedData = false;
 var inter;
 export function GameStart() {
-    if(!loadedData){
-        inter = setInterval(check,40);
-        
-    }else{
+    if (!loadedData) {
+        inter = setInterval(check, 40);
+
+    } else {
         delayGameStart()
     }
 }
-function check(){
-   if(loadedData){
-    clearInterval(inter);
-    delayGameStart();
-   }
-        
+function check() {
+    if (loadedData) {
+        clearInterval(inter);
+        delayGameStart();
+    }
+
 }
-function delayGameStart(){
+function delayGameStart() {
+    SetBar();
     score = 0;
     $("#SubmitScore").hide();
-    openQuestionBox=false;
-    
+    openQuestionBox = false;
+
     $("#gameArea").show();
     $("#menu").hide();
     $("#buttons").show();
@@ -224,7 +233,7 @@ function delayGameStart(){
 }
 function EndGame() {
 
-    
+
     $("#SubmitScore").show();
     $("#gameArea").hide();
     $("#score").html("Score: " + score);
@@ -233,7 +242,7 @@ function EndGame() {
 }
 
 //AUTH
-var uid ;
+var uid;
 signInAnonymously(auth)
     .then(() => {
         // Signed in..
@@ -257,15 +266,15 @@ onAuthStateChanged(auth, (user) => {
 
 export function writeData() {
     const referance = ref(database, "users/" + uid);
-    const HighScoreRef = ref(database, "users/"+uid+"/score")
-    let HighScore=0;
+    const HighScoreRef = ref(database, "users/" + uid + "/score")
+    let HighScore = 0;
     onValue(HighScoreRef, (snapshot) => {
-        if(snapshot!=null){
+        if (snapshot != null) {
             HighScore = snapshot.val();
         }
     });
     console.log(HighScore);
-    if(HighScore<score){
+    if (HighScore < score) {
         HighScore = score;
     }
     const Name = $("#name").val()
