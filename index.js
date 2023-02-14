@@ -217,7 +217,8 @@ function delayGameStart(){
     $("#buttons").show();
     right.addClass("second1");
     left.addClass("second2");
-
+    lives = baseLives;
+    $("#lives").html("Lives: " + lives);
     changeQuestion();
     $("#score").html("Score: " + score);
 }
