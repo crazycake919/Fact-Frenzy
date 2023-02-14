@@ -357,17 +357,24 @@ li:hover {
   }
   .card-content{
     width:45%;
-    height:100px;
+    height:45%;
+  }
+  #buttons{
+    
+    display: flex;
+
+    gap: 10px;
+    height:40vh;
   }
   .mainbox {
 
     width: 90%;
-
+    
     margin: auto;
     margin-bottom: 20px;
     /*margin-right: 64px;
       */
-    height: 200px;
+      height:200px;
     border-radius: 8px;
 
   }
