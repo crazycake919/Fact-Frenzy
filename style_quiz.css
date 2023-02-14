@@ -67,7 +67,7 @@ li:hover {
 
 #gameArea {
   width: 100%;
-  margin-top:7%;
+  margin-top:4%;
 
 }
 
@@ -481,4 +481,36 @@ p {
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
   color: var(--blue-color);
+}
+
+
+.barContainer{
+  height: 40px;
+  width: 1120px;
+  margin: auto;
+  border: 2px solid var(--almond-color);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#progressBar {
+  width: 50%;
+  height: 100%;
+  background-color: var(--blue-color);
+  transition: width 0.5s ease-in-out;
+}
+
+
+@media only screen and (max-width: 1150px) {
+  .barContainer{
+    
+    width: 90%;
+    
+  }
+  
+  body{
+    height: 100vh;
+    overflow: hidden;
+  }
+  
 }

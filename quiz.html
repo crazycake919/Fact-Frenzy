@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="style_quiz.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
-    
+
     <meta charset="utf-8">
     <title>fun facts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,77 +18,85 @@
 
     <script type="module" src="./index.js"></script>
 
-    <body>
+<body>
 
-        <div id="gameArea">
-            <div class="mainbox">
-                <div id="1">
-                </div>
-                <div id="2">
-                </div>
-                <div class="uprasanje"><h1 id="Q"></h1></div>
-                
+    <div id="gameArea">
+        <div class="mainbox">
+            <div id="1">
             </div>
-            <script>console.log("kaj se dogaja");</script>
-    
-            <div id="buttons">
-                <div class="card-content"><button id="A1" class="answer"></button></div>
-                <div class="card-content"><button id="A2" class="answer"></button></div>
-                <div class="card-content"><button id="A3" class="answer"></button></div>
-                <div class="card-content"><button id="A4" class="answer"></button></div>
+            <div id="2">
             </div>
-            <p id="score">Score: 0</p>
-            <p id="lives">Lives: 3</p>
-            
-    
+            <div class="uprasanje">
+                <h1 id="Q"></h1>
+            </div>
+
         </div>
-        <script>
-            $(document).ready(function () {
-                var startButton = $("#start");
-                var backButton = $("#back");
-                var mouseY = 0;
-                var mouseX = 0;
-                var windowHeight = window.innerHeight;
-                var windowWidth = window.innerWidth;
-    
-    
-                $(document).mousemove(function (event) {
-                    mouseY = event.clientY;
-                    mouseX = event.clientX;
-                    //animateButtons();
-                });
-    
-                function animateButtons() {
-                    var buttonHeight1 = 0;
-                    var buttonHeight2 = 0;
-    
-                    if (mouseY < windowHeight * 0.29 || mouseY > windowHeight * 0.71) {
-                        buttonHeight1 = 0.50;
-                        buttonHeight2 = 0.50;
-                    } else if (mouseY > windowHeight * 0.5) {
-                        buttonHeight1 = 0.30;
-                        buttonHeight2 = 0.8;
-                    }
-                    else {
-                        buttonHeight1 = 0.8;
-                        buttonHeight2 = 0.3;
-                    }
-    
-                    if (mouseX > windowWidth * 0.70) {
-                        buttonHeight1 = 0.5;
-                        buttonHeight2 = 0.5;
-                    } else if (mouseX < windowWidth * 0.30) {
-                        buttonHeight1 = 0.5;
-                        buttonHeight2 = 0.5;
-                    }
-    
-                    startButton.css("height", buttonHeight1 * windowHeight + "px");
-                    backButton.css("height", buttonHeight2 * windowHeight + "px");
-                }
+        <script>console.log("kaj se dogaja");</script>
+
+        <div id="buttons">
+            <div class="card-content"><button id="A1" class="answer"></button></div>
+            <div class="card-content"><button id="A2" class="answer"></button></div>
+            <div class="card-content"><button id="A3" class="answer"></button></div>
+            <div class="card-content"><button id="A4" class="answer"></button></div>
+        </div>
+        <p id="score">Score: 0</p>
+
+
+
+        <div class="barContainer">
+            <div id="progressBar" class="bar"></div>
+        </div>
+        <p id="lives">Lives: 3</p>
+        
+
+    </div>
+    <script>
+        $(document).ready(function () {
+            var startButton = $("#start");
+            var backButton = $("#back");
+            var mouseY = 0;
+            var mouseX = 0;
+            var windowHeight = window.innerHeight;
+            var windowWidth = window.innerWidth;
+
+
+            $(document).mousemove(function (event) {
+                mouseY = event.clientY;
+                mouseX = event.clientX;
+                //animateButtons();
             });
-    
-    
-            $(document).ready(function () {
+
+            function animateButtons() {
+                var buttonHeight1 = 0;
+                var buttonHeight2 = 0;
+
+                if (mouseY < windowHeight * 0.29 || mouseY > windowHeight * 0.71) {
+                    buttonHeight1 = 0.50;
+                    buttonHeight2 = 0.50;
+                } else if (mouseY > windowHeight * 0.5) {
+                    buttonHeight1 = 0.30;
+                    buttonHeight2 = 0.8;
+                }
+                else {
+                    buttonHeight1 = 0.8;
+                    buttonHeight2 = 0.3;
+                }
+
+                if (mouseX > windowWidth * 0.70) {
+                    buttonHeight1 = 0.5;
+                    buttonHeight2 = 0.5;
+                } else if (mouseX < windowWidth * 0.30) {
+                    buttonHeight1 = 0.5;
+                    buttonHeight2 = 0.5;
+                }
+
+                startButton.css("height", buttonHeight1 * windowHeight + "px");
+                backButton.css("height", buttonHeight2 * windowHeight + "px");
+            }
+        });
+
+
+        $(document).ready(function () {
             const bg = document.querySelector('.background-image');
             console.log(bg);
             const windowWidth = window.innerWidth / 5;
@@ -101,53 +109,88 @@
                 bg.style.transform = `translate3d(-${mouseX}%, -${mouseY}%, 0)`;
             });
         });
-            /*tole bo za odgovore*/
-            document.getElementById("buttons").onmousemove = e => {
-                for (const card of document.getElementsByClassName("answer")) {
-                    const rect = card.getBoundingClientRect(),
-                        x = e.clientX - rect.left,
-                        y = e.clientY - rect.top;
-    
-                    card.style.setProperty("--mouse-x", `${x}px`);
-                    card.style.setProperty("--mouse-y", `${y}px`);
-                };
-                
-            }
-    
-            // za skrit škatle ko grejo bye bye, nardit morm da se ponovi ko kliknem new question
-            
-    
-        </script>
-    
-   
-        <div id="SubmitScore">
-            <input id="name" type="text">
-            <br>
-            <button id="submit" >SUBMIT</button>
-        </div>
-        <div id="menu">
-            
-            
-            <button id="start">START</button>
-            
-            <button id="back" onclick="location.href = 'index.html';">RETURN</button>
-    
-        </div>
-    
-        
+        /*tole bo za odgovore*/
+        document.getElementById("buttons").onmousemove = e => {
+            for (const card of document.getElementsByClassName("answer")) {
+                const rect = card.getBoundingClientRect(),
+                    x = e.clientX - rect.left,
+                    y = e.clientY - rect.top;
 
-    
+                card.style.setProperty("--mouse-x", `${x}px`);
+                card.style.setProperty("--mouse-y", `${y}px`);
+            };
+
+        }
+
+        document.addEventListener('click', function () {
+
+            var livesText = document.getElementById("lives").textContent;
+            console.log(livesText);
+
+            var lives = parseInt(livesText.split(':')[1].trim());
+            console.log(lives);
+
+            var progressBar = document.getElementById("progressBar");
+            if (lives === 3) {
+                progressBar.style.width = "100%";
+            } else if (lives === 2) {
+                progressBar.style.width = "60%";
+            } else if (lives === 1) {
+                progressBar.style.width = "30%";
+            }
+        });
+
+
+
+/* če bom enkrat to delala
+        const lives = document.querySelector("#lives");
+const heartIcon = document.querySelector("#heart-icon");
+
+function showHeartIcon() {
+  if (lives.innerText.split(":")[1].trim() === "1") {
+    heartIcon.classList.add("show");
+    setTimeout(function () {
+      heartIcon.classList.remove("show");
+    }, 4000);
+  }
+}
+
+document.addEventListener("click", showHeartIcon);*/
+
+
+
+
+    </script>
+
+
+    <div id="SubmitScore">
+        <input id="name" type="text">
+        <br>
+        <button id="submit">SUBMIT</button>
+    </div>
+    <div id="menu">
+
+
+        <button id="start">START</button>
+
+        <button id="back" onclick="location.href = 'index.html';">RETURN</button>
+
+    </div>
+
+
+
+
     <script type="module">
-        import { SetQuestion,answer,GameStart,writeData } from './index.js';
-        
+        import { SetQuestion, answer, GameStart, writeData } from './index.js';
+
         $("#start").on("click", GameStart);
         $("#submit").on("click", writeData);
-        $(".answer").on("click",function (){
+        $(".answer").on("click", function () {
             answer(this);
 
         })
-</script>
-<div class="background-image"></div>
+    </script>
+    <div class="background-image"></div>
 </body>
 
 </html>
