@@ -120,6 +120,7 @@ function changeQuestion() {
     question.html(data[currentQuestion][0]);
     Randomise();
     ableToAnswer = true;
+    $(".correct").removeClass("correct");
 }
 export function SetQuestion() {
 
@@ -161,6 +162,7 @@ export function answer(button) {
         return;
     }
     ableToAnswer = false;
+    $("#"+data[currentQuestion][1]).addClass("correct");
     if (button.id == data[currentQuestion][1]) {
         //console.log("yes");
         score++;
