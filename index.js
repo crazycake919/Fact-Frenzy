@@ -20,6 +20,7 @@ var score = 0;
 var baseLives = 3;
 var lives = baseLives;
 var GetLives = 0;
+var ableToAnswer = true;
 var data = new Array(questionLength);
 for (let i = 0; i < questionLength; i++) {
     data[i] = new Array(3);
@@ -118,6 +119,7 @@ function changeQuestion() {
     let question = $("#Q");
     question.html(data[currentQuestion][0]);
     Randomise();
+    ableToAnswer = true;
 }
 export function SetQuestion() {
 
@@ -155,7 +157,10 @@ function Randomise() {
 }
 
 export function answer(button) {
-
+    if(!ableToAnswer){
+        return;
+    }
+    ableToAnswer = false;
     if (button.id == data[currentQuestion][1]) {
         //console.log("yes");
         score++;
@@ -230,6 +235,7 @@ function delayGameStart() {
     $("#lives").html("Lives: " + lives);
     changeQuestion();
     $("#score").html("Score: " + score);
+    ableToAnswer = true;
 }
 function EndGame() {
 
